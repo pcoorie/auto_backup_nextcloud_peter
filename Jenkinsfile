@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Starting backups....'
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'kube-worker-1', transfers: [sshTransfer(excludes: '', execCommand: "rsync -arv --exclude *photoslibrary/ --exclude *Music/ /app-msc-data/peter/ /mysmartcloud-data/backups/peter/", execTimeout: 0, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'hub', transfers: [sshTransfer(excludes: '', execCommand: "rsync -arv --exclude *photoslibrary/ --exclude *Music/ /nexthub/data/peter/ /s3fs-nexthub-data/nexthub-data/peter/", execTimeout: 0, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             }
         }
     }
