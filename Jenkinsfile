@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Starting backups....'
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'hub', transfers: [sshTransfer(excludes: '', execCommand: "mc mirror /nexthub/data/peter/files/ s3-gateway/msc-data-store/next-cloud-coorie-net/peter/files/", execTimeout: 0, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'hub', transfers: [sshTransfer(excludes: '', execCommand: "mc mirror --exclude *Music/ /nexthub/data/peter/files/ s3-gateway/msc-data-store/next-cloud-coorie-net/peter/files/", execTimeout: 0, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             }
         }
     }
