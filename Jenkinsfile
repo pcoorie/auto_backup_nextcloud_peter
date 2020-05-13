@@ -17,7 +17,7 @@ pipeline {
         stage('Adding') {
             steps {
                 echo 'Checking system..'
-                echo "You are about to backup the data for user peter "
+                echo "You are about to backup the data for user  "
             }
         }
         stage('Deploy') {
